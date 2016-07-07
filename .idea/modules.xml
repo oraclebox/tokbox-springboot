@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/tokbox-springboot.iml" filepath="$PROJECT_DIR$/.idea/modules/tokbox-springboot.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/tokbox-springboot_main.iml" filepath="$PROJECT_DIR$/.idea/modules/tokbox-springboot_main.iml" group="tokbox-springboot" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/tokbox-springboot_test.iml" filepath="$PROJECT_DIR$/.idea/modules/tokbox-springboot_test.iml" group="tokbox-springboot" />
+    </modules>
+  </component>
+</project>

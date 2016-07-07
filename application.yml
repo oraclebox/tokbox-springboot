@@ -1,0 +1,6 @@
+server:
+  port: 9000
+application:
+  opentok:
+    apiKey: <Here tokbox API key>
+    apiSecret: <Here tokbox API Secret>

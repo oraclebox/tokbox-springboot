@@ -1,10 +1,12 @@
 package com.github.oraclebox.controller
 
 import com.github.oraclebox.model.ResultModel
+import com.github.oraclebox.service.SessionService
 import com.opentok.*
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
+import org.springframework.util.Assert
 import org.springframework.web.bind.annotation.*
 
 @RestController
@@ -13,6 +15,26 @@ class SessionController {
 
     @Autowired
     OpenTok openTok;
+    @Autowired
+    SessionService service;
+
+
+    @CrossOrigin
+    @RequestMapping(value = "/session", method = RequestMethod.POST)
+    public ResponseEntity session(@RequestBody Map json) {
+        Assert.isTrue(!(json == null), "Missing payload content.");
+        String sessionId = service.getSessionId(
+                json.get("mediaMode").toString(),
+                json.get("archiveMode").toString());
+
+
+        String username = "Default"; //TODO from JWT session key;
+        long expireTime = 0; //TODO determine the expireTime;
+        String token = service.createToken(sessionId, username, expireTime);
+
+        return new ResponseEntity<>(ResultModel.ok(service.createTokToken(sessionId, token)), HttpStatus.OK);
+    }
+
     /*
      * Create session by your APIKEY (You can consider as chat room)
      */

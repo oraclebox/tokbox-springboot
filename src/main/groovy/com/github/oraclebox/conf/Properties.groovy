@@ -16,6 +16,9 @@ class Properties {
 class OpenTokConfig{
     int apiKey;
     String apiSecret;
+    String mediaMode;
+    String archiveMode;
+    long expireTime;
 
     @Bean
     OpenTok openTok(){
